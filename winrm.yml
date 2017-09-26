@@ -1,0 +1,7 @@
+---
+- name: win_rm testrs
+  hosts: all
+ 
+  tasks:
+ 
+  - name: win_ping
