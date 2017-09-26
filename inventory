@@ -1,0 +1,10 @@
+[windows]
+redhat.redhat.lcl
+
+[windows:vars]
+ansible_user = administrator@REDHAT.LCL
+ansible_connection = winrm
+ansible_port = 5985
+ansible_winrm_transport=kerberos
+ansible_winrm_server_cert_validation=ignore
+
