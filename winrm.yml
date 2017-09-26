@@ -1,7 +1,7 @@
 ---
 - name: win_rm testrs
   hosts: all
- 
+  gather_facts: False
   tasks:
  
   - win_ping:
