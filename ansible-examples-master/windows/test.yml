@@ -1,6 +1,7 @@
 ---
 - name: test raw module
-  hosts: all 
+  hosts: all
+  gather_facts: False
   tasks:
     - name: run ipconfig
       raw: ipconfig
@@ -9,6 +10,7 @@
 
 - name: test stat module
   hosts: windows
+  gather_facts: False
   tasks:
     - name: test stat module on file
       win_stat: path="C:/Windows/win.ini"
