@@ -25,3 +25,11 @@
              - "not stat_file.stat.isdir"
              - "stat_file.stat.size > 0"
              - "stat_file.stat.md5"
+
+- name: test raw module
+  hosts: all
+  tasks:
+    - name: run ipconfig
+      raw: ipconfig
+      register: ipconfig
+    - debug: var=ipconfig
