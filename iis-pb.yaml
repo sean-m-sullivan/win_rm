@@ -1,6 +1,6 @@
 ---
 
-- hosts: iis_webserver        
+- hosts: all        
   roles:
   - install-iis
   - deploy-webapp
