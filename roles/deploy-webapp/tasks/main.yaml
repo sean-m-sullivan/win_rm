@@ -1,0 +1,25 @@
+---
+
+- name: Copy SFT0 webapplication 
+  win_copy:
+    src: SFT0
+    dest: C:\webapps\
+
+- name: Set SFT0 folder ACLs
+  raw: 'icacls --% "C:\webapps\SFT0" /grant "IIS APPPOOL\DefaultAppPool":(OI)(CI)(RX)'
+  # win_acl:
+    # path: "C:\\webapps\\SFT0"
+    # state: present
+    # type: allow
+    # user: 'IIS APPPOOL\DefaultAppPool'
+    # inherit: 'ContainerInherit, ObjectInherit'
+    # rights: Read
+    
+- name: Add SFT0 webapplication on IIS.
+  win_iis_webapplication:
+    name: SFT0
+    site: "Default Web Site"
+    state: present
+    physical_path: "C:\\webapps\\SFT0\\"
+    
+...

@@ -1,0 +1,13 @@
+---
+- name: Copy 9L01 installation script
+  win_copy: 
+    src: 9L01
+    dest: C:\RBFG\9L\
+    
+- name: Install IIS
+  win_command: C:\Windows\system32\cscript.exe C:\RBFG\9L\9L01\Server\IIS8_InstallScript.vbs PRIST ALL
+  register: InstallResult
+  
+- debug: var=InstallResult  
+
+...
