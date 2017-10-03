@@ -6,11 +6,12 @@
     - name: run ipconfig
       raw: ipconfig
       register: ipconfig
+      become_user: apache
     - debug: var=ipconfig
-  become_user: apache
+
 
 - name: test stat module
-  hosts: windows
+  hosts: all
   gather_facts: False
   tasks:
     - name: test stat module on file
@@ -34,4 +35,5 @@
     - name: run ipconfig
       raw: ipconfig
       register: ipconfig
+      become_user: apache
     - debug: var=ipconfig
